@@ -1,0 +1,40 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+div.containers{
+	height: 100%;
+	width: 100%;
+	background-image: url('../background.jpg');
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+div.container{
+	margin:0 auto;
+	width:80%;
+}
+nav.navbar-brand{
+	float:left;
+}
+nav div.navbar-collapse{
+	float: right;
+}
+ul li{
+	display: inline;
+}
+ul li a.nav-link{
+	color:white;
+	margin-right: 10px;
+	font-size:18px;
+	font-weight: 500;
+}
+a.btn{
+	background-color: rgb(31, 181, 231);
+	padding:5px;
+	border-radius:10px;
+}

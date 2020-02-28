@@ -1,0 +1,281 @@
+/*Import Font*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+/*General Style*/
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	background-image: url('../background.jpg');
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+a[href]{
+	text-decoration: none !important;
+	color:rgb(6, 51, 66);
+}
+a:hover{
+	color:rgb(6, 51, 66);
+}
+a.btn{
+	padding:5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	outline: none;
+	box-shadow: 4px 2px 6px rgb(6, 51, 66);
+	cursor: pointer;
+	color:white;
+}
+a.btn:hover{
+	background-color: white;
+	transform:scale(1.1);
+	color:rgb(31, 181, 231);
+}
+a.tombol-primary{
+	background-color: rgb(31, 181, 231);
+}
+a.btn.tombol-primary:hover{
+	color:rgb(31, 181, 231) !important;
+}
+a.nav-link{
+	color:white !important;
+	font-weight: bold;
+}
+a.nav-link:hover{
+	color:rgb(31, 181, 231);
+}
+a.nav-link:hover::after{
+	content:' ';
+	border-bottom: 10px solid black !important;
+}
+.hidden{
+	display:none;
+}
+input,span,button{
+	font-family: 'Roboto', sans-serif;
+}
+span{
+	font-weight: bold;
+}
+/*Container Parent*/
+div.containers{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+/*Navbar*/
+div nav.navbar{
+	position: relative;
+	background-color: transparent;
+	margin: 0px;
+}
+.navbar-brand{
+	color:white !important;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+li.nav-item a.nav-link.btn{
+	color:white;
+	width:100px;
+	font-size: 18px;
+	height: auto;
+}
+li.nav-item a.nav-link.btn:hover{
+	color:rgb(31, 181, 231);
+	width:100px;
+	font-size: 18px;
+	height: auto;
+}
+li.nav-item a.nav-link{
+	margin-right: 15px;
+	font-size: 18px;
+}
+li.nav-item a.nav-link.btn.tombol-primary:hover::after{
+	content:' ';
+	border-bottom: 10px solid black;
+}
+
+/* Jumbotron Styles*/
+div.jumbotron #jumbotron{
+	position:relative;
+	
+}
+h1.display-4{
+	color:white;
+	font-size:52px;
+	font-weight: 500;
+	font-family: 'Roboto', sans-serif;
+}
+.jumbotron a.btn{
+	width: 180px;
+	height: 40px;
+	font-size: 20px;
+	margin:0;
+}
+.col-lg-6 p{
+	color:white;
+}
+.col-lg-6 a{
+	width:180px;
+	height:40px;
+}
+/*Footer*/
+div#footer.footer{
+	position: relative;
+	margin-top:220px;
+}
+div#footer p{
+	color:white;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+div#footer p a{
+	color:white;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*Form Layout*/
+div.signup{
+	position:absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url('../background.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.close{
+	position:relative;
+	float:right;
+	color:black;
+	cursor:pointer;
+}
+.form-box{
+	width:380px;
+	height: 480px;
+	position: relative;
+	margin:6% auto;
+	background-color: #fff;
+	padding:5px;
+	box-shadow: 2px 10px 10px black;
+}
+div.button-box{
+	width:250px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px rgb(31, 181, 231);
+	border-radius: 30px;
+}
+.toggle-button{
+	padding:10px 30px;
+	cursor:pointer;
+	background:transparent;
+	border:0;
+	height: 40px;
+	display:inline-block;
+	outline: none;
+	position: relative;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+.input-group{
+	top:0px;
+	position: absolute;
+	width:280px;
+	transition:.5s;
+}
+.input-group.hidden{
+	display:none;
+}
+.input-field{
+	width:100%;
+	padding:10px 20px;
+	margin: 5px 0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background:transparent;
+}
+.submit-button{
+	width:85%;
+	padding:10px 30px;
+	cursor:pointer;
+	display:block;
+	margin:auto;
+	margin-top: 70px;
+	background:linear-gradient(to right,rgb(12, 133, 173),rgb(31, 181, 231));
+	border:0;
+	outline: none;
+	border-radius: 30px;
+	color:white;
+	top: 0px;
+	position: relative;
+}
+.check-box{
+	position:relative;
+	margin-left: 10px;
+	top:5px;
+	float:left;
+}
+.check-span{
+	top:5px;
+	left:20px;
+	position: relative;
+}
+#login{
+	left:0px;
+}
+#register{
+	left:0px;
+}
+.form-box p{
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	bottom:0;
+	left:38%;
+	color:rgb(31, 181, 231);
+}
+div.form-box div.flash{
+	position:relative;
+	color:red !important;
+	left:20px;
+}
+
+@media (max-width: 991.98px) {
+	h1.display-4{
+		font-size:36px;
+	}
+	.col-lg-6 p{
+		font-size:16px;
+	}
+	div#footer.footer{
+		margin-top:120px;
+	}
+}
+@media (max-width: 575.98px) {
+	.form-box{
+		width:280px;
+		height: 480px;
+		font-size:14px;
+	}
+	div.button-box{
+		width:200px;
+	}
+	.toggle-button{
+		padding:10px 20px;
+	}
+	form button.submit-button{
+		font-size:16px;
+		padding:6px 0px;
+	}
+	.form-box p{
+		left:34%;
+	}
+}

@@ -1,0 +1,13 @@
+$(document).ready(function(){
+	$('#register').addClass('hidden');
+	$('#toggle-login').click(function(event){
+		event.preventDefault();
+		$('#register').addClass('hidden');
+		$('#login').removeClass('hidden');
+	});
+	$('#toggle-register').click(function(event){
+		event.preventDefault();
+		$('#login').addClass('hidden');
+		$('#register').removeClass('hidden');
+	});
+});
