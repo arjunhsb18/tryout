@@ -95,7 +95,7 @@ class Dashboard extends CI_Controller {
 
 	function sendanswer(){
 		$answers = $this->input->post('jawaban');
-		print_r('$answers');
+
 		$result['num_rows'] = $this->MTryOut->checkNumRows($answers);
 		$result['message'] = 'success';
 		echo json_encode($result);
