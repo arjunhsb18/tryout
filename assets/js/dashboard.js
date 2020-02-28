@@ -166,17 +166,24 @@ $(document).ready(function(){
 				confirmButtonText: 'Ya, Saya Yakin!'
 			}).then((result) => {
 				if (result.value) {
-					var kodeSubject = $('#kode-subject').text();
-					console.log(JSON.stringify(jawaban));
+					var kode_subject = $('#kode-subject').text();
+				
+					var answer = JSON.stringify(jawaban);
+					/*const xhr = new XMLHttpRequest();
+					xhr.open('POST',base_url+'index.php/dashboard/dashboard/sendanswer');
+					xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+					xhr.send("answer="+answer+"&kode="+kode_subject);*/
+					
 					$.ajax({
 						type:'POST',
-						data:'jawaban='+jawaban,
+						data:'answer='+answer+"&kode="+kode_subject,
 						url:base_url+'index.php/dashboard/dashboard/sendanswer',
 						dataType:'json',
 						success:function(hasil){
 							console.log(hasil.message);
 						}
 					});
+
 				}
 			})
 		});
