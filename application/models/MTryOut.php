@@ -74,26 +74,37 @@ class MTryOut extends CI_Model {
 		return $data;
 	}
 
-	function checkNumRows($answer){
+	function insertAnswer($kode,$answer){
 		$this->db->select('username,kode_subject');
-		$this->db->where('kode_subject',$_SESSION['kode_subject']);
+		$this->db->where('kode_subject',$kode);
 		$this->db->where('username',$_SESSION['username']);
 		$Q=$this->db->get('lembar_jawaban_to');
-		if($Q->num_rows()>0){
+		if($Q->num_rows()==1){
+			print_r($Q->num_rows());
 			$data = array(
-				'jawaban' => $answer
+				'jawaban' => json_encode($answer,true)
 			);
-			$this->db->where('kode_subject',$_SESSION['kode_subject']);
+			$this->db->where('kode_subject',$kode);
 			$this->db->where('username',$_SESSION['username']);
-			$this->db->insert('lembar_jawaban_to',$data);
+			$this->db->update('lembar_jawaban_to',$data);
 		}else{
 			$data = array(
 				'username' => $_SESSION['username'],
-				'kode_subject' => $_SESSION['kode_subject'],
-				'jawaban' => $answer
+				'kode_subject' => $kode,
+				'jawaban' => json_encode($answer,true)
 			);
 			$this->db->insert('lembar_jawaban_to',$data);
 		}
+		return $data;
+	}
+	function getLembar(){
+		$this->db->select('jawaban');
+		$this->db->where('kode_subject','tp1');
+		$Q = $this->db->get('lembar_jawaban_to');
+		if($Q->num_rows()>0){
+			$data = $Q->row_array();
+		}
+		$Q->free_result();
 		return $data;
 	}
 }

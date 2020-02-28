@@ -94,9 +94,11 @@ class Dashboard extends CI_Controller {
 	}
 
 	function sendanswer(){
-		$answers = $this->input->post('jawaban');
-		$result['num_rows'] = $this->MTryOut->checkNumRows($answers);
+		$kode = $_POST['kode'];
+		$answer = $_POST['answer'];
+		$this->MTryOut->insertAnswer($kode,$answer);
 		$result['message'] = 'success';
+		print_r($_SESSION['username']);
 		echo json_encode($result);
 	}
 }

@@ -1,0 +1,14 @@
+
+// Cara mengkonversi Object JSON ke Array
+$get_json = json_decode(json_decode($get['jawaban'],true),true);
+
+// Cara mengkonversi Array ke Object JSON
+.menggunakan json_encode
+
+
+//Database 
+
+-...Mereset Auto Increment
+
+ALTER TABLE nama_tabel AUTO_INCREMENT=0
+
