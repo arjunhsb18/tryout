@@ -13,6 +13,13 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 		
+		<!--Navbar-->
+			<?php $this->load->view('dashboard/navbar_dash');?>
+		<!--Navbar-->
+
+		<!--Sidebar-->
+			<?php $this->load->view('dashboard/sidebar_dash');?>
+		<!--sidebar-->
 
 		<!--Content-->
 			<?php $this->load->view('dashboard/'.$main.'_dash');?>

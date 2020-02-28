@@ -167,7 +167,7 @@ $(document).ready(function(){
 			}).then((result) => {
 				if (result.value) {
 					var kodeSubject = $('#kode-subject').text();
-					console.log(jawaban);
+					console.log(JSON.stringify(jawaban));
 					$.ajax({
 						type:'POST',
 						data:'jawaban='+jawaban,
