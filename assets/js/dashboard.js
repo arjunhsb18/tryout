@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var base_url = window.location.origin+'/tryout/';
-
+	var jawaban = new Object();
 	// --------Verifikasi Kode Voucher---------//
 	$('#submit-voucher').click(function(event){
 		event.preventDefault();
@@ -61,14 +61,8 @@ $(document).ready(function(){
 	//------ Ragu Button Try Out ------//
 	$('.ragu').click(function(event){
 		event.preventDefault();
-		var i= 0;
-		$('input[name^=answer-]').each(function(){
-			console.log($('input[name=answer-'+i).val());
-			i++;
-			return i;
-		});
+		console.log(jawaban);
 	});
-
 	//------ /.Ragu Button Try Out ------//
 
 	// --------- UnCheck Button Try Out ------//
@@ -80,7 +74,10 @@ $(document).ready(function(){
 	$('.uncheck').click(function(event){
 		event.preventDefault();
 		var name=$(this).attr('href');
+		var no = name.split('-');
+		alert(no);
 		uncheckAll($('input[name='+name+']'));
+
 	});
 
 	// --------- /.UnCheck Button Try Out ------//
@@ -99,7 +96,17 @@ $(document).ready(function(){
 			confirmButtonText: 'Ya, Saya Yakin!'
 		}).then((result) => {
 			if (result.value) {
-				window.location = 'http://google.com';
+				var kode_subject = $('#kode-subject').text();
+				var answer = JSON.stringify(jawaban);
+				$.ajax({
+					type:'POST',
+					data:'answer='+answer+"&kode="+kode_subject,
+					url:base_url+'index.php/dashboard/dashboard/sendanswer',
+					dataType:'json',
+					success:function(hasil){
+						window.location = 'http://google.com';
+					}
+				});
 			}
 		});
 	}
@@ -122,7 +129,17 @@ $(document).ready(function(){
 					timer:3000,
 					showConfirmButton:false
 				}).then((result)=>{
-					window.location = 'http://google.com';
+					var kode_subject = $('#kode-subject').text();
+					var answer = JSON.stringify(jawaban);
+					$.ajax({
+						type:'POST',
+						data:'answer='+answer+"&kode="+kode_subject,
+						url:base_url+'index.php/dashboard/dashboard/sendanswer',
+						dataType:'json',
+						success:function(hasil){
+							window.location = 'http://google.com';
+						}
+					});
 				});
 			}
 			if(m<0){
@@ -174,20 +191,29 @@ $(document).ready(function(){
 						url:base_url+'index.php/dashboard/dashboard/sendanswer',
 						dataType:'json',
 						success:function(hasil){
-							console.log(hasil.message);
+							window.location = 'http://google.com';
 						}
 					});
-
 				}
 			})
 		});
 	/* ----- /. Submit Answer ------*/
-	var jawaban = new Object();
+	
+	/* ---- Membuat Lembar Jawaban Awal ----*/
+	var totalpage = $('.page-last').text();
+	for(var i= 1; i<=totalpage;i++){
+		jawaban['soal'+i]="";
+	}	
+	/* ----/. Membuat Lembar Jawaban Awal ----*/
+	
+	/* ---- Set Jawaban yang di klik -----*/
 	$('input[type=radio]').click(function(event){
 		var $no = $(this).attr('name').split('-');
 		var $answer = $(this).val();
 		jawaban['soal'+$no[1]] = $answer;
 		return jawaban;
 	});
+	/* ----/. Set Jawaban yang di klik -----*/
+
 
 });
