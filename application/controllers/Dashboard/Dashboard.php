@@ -98,7 +98,6 @@ class Dashboard extends CI_Controller {
 		$answer = $_POST['answer'];
 		$this->MTryOut->insertAnswer($kode,$answer);
 		$result['message'] = 'success';
-		print_r($_SESSION['username']);
 		echo json_encode($result);
 	}
 }
