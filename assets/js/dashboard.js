@@ -75,9 +75,9 @@ $(document).ready(function(){
 		event.preventDefault();
 		var name=$(this).attr('href');
 		var no = name.split('-');
-		alert(no);
+		jawaban['soal'+no[1]] = "";
 		uncheckAll($('input[name='+name+']'));
-
+		return jawaban;
 	});
 
 	// --------- /.UnCheck Button Try Out ------//
