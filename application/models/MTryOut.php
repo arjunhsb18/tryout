@@ -80,7 +80,6 @@ class MTryOut extends CI_Model {
 		$this->db->where('username',$_SESSION['username']);
 		$Q=$this->db->get('lembar_jawaban_to');
 		if($Q->num_rows()==1){
-			print_r($Q->num_rows());
 			$data = array(
 				'jawaban' => json_encode($answer,true)
 			);

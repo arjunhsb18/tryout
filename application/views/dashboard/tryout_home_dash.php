@@ -33,6 +33,8 @@
 											<?php for($i=1;$i<=$total_question['total_soal'];$i++):?>
 													<?php if($i==1):?>
 															<a class="page page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
+													<?php elseif($i==$total_question['total_soal']):?>
+													<a class="page page-last page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
 													<?php else:?>
 															<a class="page page-<?=$i;?> nav-link" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
 													<?php endif;?>
