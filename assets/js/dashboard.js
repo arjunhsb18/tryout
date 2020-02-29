@@ -167,13 +167,7 @@ $(document).ready(function(){
 			}).then((result) => {
 				if (result.value) {
 					var kode_subject = $('#kode-subject').text();
-				
 					var answer = JSON.stringify(jawaban);
-					/*const xhr = new XMLHttpRequest();
-					xhr.open('POST',base_url+'index.php/dashboard/dashboard/sendanswer');
-					xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-					xhr.send("answer="+answer+"&kode="+kode_subject);*/
-					
 					$.ajax({
 						type:'POST',
 						data:'answer='+answer+"&kode="+kode_subject,
