@@ -12,3 +12,11 @@ $get_json = json_decode(json_decode($get['jawaban'],true),true);
 
 ALTER TABLE nama_tabel AUTO_INCREMENT=0
 
+
+// Ajax
+
+-.....Melakukan ajax dengan XHR
+/*const xhr = new XMLHttpRequest();
+					xhr.open('POST',base_url+'index.php/dashboard/dashboard/sendanswer');
+					xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+					xhr.send("answer="+answer+"&kode="+kode_subject);*/
