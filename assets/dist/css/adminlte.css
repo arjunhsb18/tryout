@@ -4103,7 +4103,7 @@ input[type="button"].btn-block {
     transition: none;
   }
 }
-
+/*
 .nav {
   display: -ms-flexbox;
   display: flex;
@@ -4112,6 +4112,10 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+}
+*/
+.nav  {
+  display:inline;
 }
 
 .nav-link {
