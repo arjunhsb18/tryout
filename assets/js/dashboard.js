@@ -61,7 +61,10 @@ $(document).ready(function(){
 	//------ Ragu Button Try Out ------//
 	$('.ragu').click(function(event){
 		event.preventDefault();
-		console.log(jawaban);
+		var no = $(this).attr('href').split('-');
+		$('span.box-'+no[1]).css({
+			backgroundColor:'orange'
+		});
 	});
 	//------ /.Ragu Button Try Out ------//
 
@@ -76,6 +79,9 @@ $(document).ready(function(){
 		var name=$(this).attr('href');
 		var no = name.split('-');
 		jawaban['soal'+no[1]]="";
+		$('span.box-'+no[1]).css({
+			backgroundColor:'white'
+		});
 		uncheckAll($('input[name='+name+']'));
 		return jawaban;
 	});
@@ -210,6 +216,9 @@ $(document).ready(function(){
 		var $no = $(this).attr('name').split('-');
 		var $answer = $(this).val();
 		jawaban['soal'+$no[1]] = $answer;
+		$('span.box-'+$no[1]).css({
+			backgroundColor:'blue'
+		});
 		return jawaban;
 	});
 	/* ----/. Set Jawaban yang di klik -----*/
