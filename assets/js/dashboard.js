@@ -111,7 +111,7 @@ $(document).ready(function(){
 		});
 	}
 	function startTimer() {
-		var presentTime = document.getElementById('timer').innerHTML;
+		var presentTime = $('#timer').html();
 		var timeArray = presentTime.split(/[:]+/);
 		var m = timeArray[0];
 		var s = checkSecond((timeArray[1] - 1));
