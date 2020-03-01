@@ -29,12 +29,13 @@
 								<!-- Profile Image -->
 								<div class="card mx-2 ">
 									<div class="card-body box-profile">
-											<div class="nav nav-pills di-inline text-center" id="pages">
+											<div class="nav nav-pages nav-flexs di-inline text-center" id="pages">
 											<?php for($i=1;$i<=$total_question['total_soal'];$i++):?>
 													<?php if($i==1):?>
+														<div id="square"></div>
 															<a class="page page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
 													<?php elseif($i==$total_question['total_soal']):?>
-													<a class="page page-last page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
+													<a class="page page-last page-<?=$i;?> nav-link" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
 													<?php else:?>
 															<a class="page page-<?=$i;?> nav-link" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
 													<?php endif;?>
