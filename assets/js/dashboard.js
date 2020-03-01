@@ -75,7 +75,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		var name=$(this).attr('href');
 		var no = name.split('-');
-		jawaban['soal'+no[1]] = "";
+		jawaban['soal'+no[1]]="";
 		uncheckAll($('input[name='+name+']'));
 		return jawaban;
 	});
@@ -111,7 +111,7 @@ $(document).ready(function(){
 		});
 	}
 	function startTimer() {
-		var presentTime = document.getElementById('timer').innerHTML;
+		var presentTime = $('#timer').html();
 		var timeArray = presentTime.split(/[:]+/);
 		var m = timeArray[0];
 		var s = checkSecond((timeArray[1] - 1));
@@ -147,11 +147,7 @@ $(document).ready(function(){
 				0 + ":00";
 			}else{
 				$('.main-sidebar a, .sidebar a.nav-link, #logout a, #footer a,input[type=search]')
-				.click(function(event){
-					event.preventDefault();
-					leaveTryOut();
-				});
-				$(window).on('unload',function(event){
+				.on('click',function(event){
 					event.preventDefault();
 					leaveTryOut();
 				});
@@ -202,7 +198,10 @@ $(document).ready(function(){
 	/* ---- Membuat Lembar Jawaban Awal ----*/
 	var totalpage = $('.page-last').text();
 	for(var i= 1; i<=totalpage;i++){
-		jawaban['soal'+i]="";
+		jawaban['soal'+i]=$('input:radio[name=answer-'+i+']:checked').val();
+		if(jawaban['soal'+i]==undefined){
+			jawaban['soal'+i]="";
+		}
 	}	
 	/* ----/. Membuat Lembar Jawaban Awal ----*/
 	
@@ -215,5 +214,12 @@ $(document).ready(function(){
 	});
 	/* ----/. Set Jawaban yang di klik -----*/
 
-
+	/* ==== Get Time Remaining ----*/
+	$('#timer').on('beforeunload',function(){
+		var timerRemaining = $('#timer').text();
+		console.log(timerRemaining);
+	});
+	if(window.close()){
+		window.location = 'http://google.com';
+	}
 });
