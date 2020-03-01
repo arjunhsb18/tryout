@@ -25,18 +25,18 @@
 								<button style="font-size:25px; padding:5px 5px; width:200px;" class="btn btn-app text-center" id="timer"><?=$subject['menit'];?>:<?=$subject['detik'];?></button>
 							</div><!-- /.card-header -->
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<!-- Profile Image -->
 								<div class="card mx-2 ">
 									<div class="card-body box-profile">
-											<div class="nav nav-pills di-inline text-center" id="pages">
+											<div class="nav nav-pages di-inline text-center" id="pages">
 											<?php for($i=1;$i<=$total_question['total_soal'];$i++):?>
 													<?php if($i==1):?>
-															<a class="page page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
+															<a class="page page-<?=$i;?> mx-2 nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?><span class="box-<?= $i;?>"> &nbsp; </span></a>
 													<?php elseif($i==$total_question['total_soal']):?>
-													<a class="page page-last page-<?=$i;?> nav-link active" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
+													<a class="page page-last page-<?=$i;?> mx-2 nav-link " href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?><span class="box-<?= $i;?>"> &nbsp; </span></a>
 													<?php else:?>
-															<a class="page page-<?=$i;?> nav-link" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?></a>
+															<a class="page page-<?=$i;?> mx-2 nav-link" href="#soal-<?=$i;?>" data-toggle="tab"><?=$i;?><span class="box-<?= $i;?>"> &nbsp; </span></a>
 													<?php endif;?>
 												<?php endfor;?>
 											</div>
@@ -46,7 +46,7 @@
 								<!-- /.card -->
 							</div>
 
-							<div class="col-md-10">
+							<div class="col-md-9">
 								<div class="card mx-2">
 									<div class="card-body">
 										<div class="tab-content">
@@ -112,7 +112,7 @@
 													<div class="mailbox-controls text-center">
 														
 														
-														<a class="ragu" href="">
+														<a class="ragu" href="ragu-<?=$rows['nomor_soal'];?>">
 																	<button type="button" class="btn btn-outline-dark default btn-md "
 																		data-toggle="tooltip">
 																		Ragu-ragu

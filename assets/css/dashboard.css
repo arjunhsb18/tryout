@@ -47,12 +47,39 @@ li a{
 p.note{
 	line-height:0.5px;
 }
-
+.nav{
+	column-count: 2;
+}
+.nav-pages .nav-link.active{
+	background-color: none;
+	border-top: 2px solid blue;
+}
+#pages a.nav-link{
+	width:50%;
+	font-size:13px;
+}
+.nav-link span{
+	width: 8px !important;
+	height:8px !important;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+a.page.nav-link:hover{
+	border-bottom:1px solid black;
+}
 @media (max-width: 575.98px) {
 	/*.col-md-1	{
 		width :px;
 	}*/
-
+	.nav{
+		column-count: 3;
+	}
+	#pages a.nav-link{
+		width:auto;
+		font-size: 14px;
+	}
 	.di-inline{
 		display:flex;
 		flex-direction: row;
