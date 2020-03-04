@@ -48,26 +48,26 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+							<a href="<?= base_url();?>index.php/dashboard/dashboard/result" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Hasil Try Out</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="pages/layout/boxed.html" class="nav-link">
+							<a href="<?= base_url();?>index.php/dashboard/dashboard/ranking" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Ranking Try Out</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="pages/layout/fixed-sidebar.html" class="nav-link">
+							<a href="<?= base_url();?>index.php/dashboard/dashboard/solving" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Pembahasan Try Out</p>
 							</a>
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-chart-pie"></i>
 						<p>
@@ -82,18 +82,18 @@
 							Tips & Trik
 						</p>
 					</a>
-				</li>
+				</li>-->
 				<li class="nav-header uppercase">Setting</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a href="pages/calendar.html" class="nav-link">
 						<i class="nav-icon far fa-user"></i>
 						<p>
 							General
 						</p>
 					</a>
-				</li>
+				</li>-->
 				<li class="nav-item">
-					<a href="pages/calendar.html" class="nav-link">
+					<a href="<?= base_url();?>index.php/dashboard/dashboard/profile" class="nav-link">
 						<i class="nav-icon far fa-user"></i>
 						<p>
 							Profile
