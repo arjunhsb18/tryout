@@ -25,7 +25,7 @@
 								<button style="font-size:25px; padding:5px 5px; width:200px;" class="btn btn-app text-center" id="timer"><?=$subject['menit'];?>:<?=$subject['detik'];?></button>
 							</div><!-- /.card-header -->
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-lg-3 col-3">
 								<!-- Profile Image -->
 								<div class="card mx-2 ">
 									<div class="card-body box-profile">
@@ -46,7 +46,7 @@
 								<!-- /.card -->
 							</div>
 
-							<div class="col-md-9">
+							<div class="col-lg-9 col-9">
 								<div class="card mx-2">
 									<div class="card-body">
 										<div class="tab-content">

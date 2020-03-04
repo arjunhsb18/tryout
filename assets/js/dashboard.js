@@ -89,7 +89,63 @@ $(document).ready(function(){
 	// --------- /.UnCheck Button Try Out ------//
 	
 	//------ Coundown Timer ------ //
-	startTimer();
+	$('#tryout').ready(function(){
+		startTimer();
+		function startTimer() {
+			var presentTime = $('#timer').html();
+			var timeArray = presentTime.split(/[:]+/);
+			var m = timeArray[0];
+			var s = checkSecond((timeArray[1] - 1));
+			if(s==59){m=m-1}
+			//if(m<0){alert('timer completed')}
+				if(m<=5){
+					$('#timer').css({
+						color:'red'
+					});
+				}
+				if(m==0 && s==0){
+					Swal.fire({
+						title:'Waktu Anda Telah Habis!',
+						icon:'warning',
+						timer:3000,
+						showConfirmButton:false
+					}).then((result)=>{
+						var kode_subject = $('#kode-subject').text();
+						var answer = JSON.stringify(jawaban);
+						$.ajax({
+							type:'POST',
+							data:'answer='+answer+"&kode="+kode_subject,
+							url:base_url+'index.php/dashboard/dashboard/sendanswer',
+							dataType:'json',
+							success:function(hasil){
+								window.location = 'http://google.com';
+							}
+						});
+					});
+				}
+				if(m<0){
+					document.getElementById('timer').innerHTML =
+					0 + ":00";
+				}else{
+					$('.main-sidebar a, .sidebar a.nav-link, #logout a, #footer a,input[type=search]')
+					.on('click',function(event){
+						event.preventDefault();
+						leaveTryOut();
+					});
+					document.getElementById('timer').innerHTML =
+					m + ":" + s;
+				}
+			setTimeout(startTimer, 1000);
+			}
+	
+			function checkSecond(sec) {
+			if (sec < 10 && sec >= 0) {sec = "0" + sec;} // add zero in front of numbers < 10
+			if (sec < 0) {sec = "59";}
+			return sec;
+			}
+		
+		/* ----- /.Countdown Timer ------ */
+	});
 	function leaveTryOut(){
 		Swal.fire({
 			title: 'Anda Yakin ingin Mengakhiri?',
@@ -116,60 +172,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	function startTimer() {
-		var presentTime = $('#timer').html();
-		var timeArray = presentTime.split(/[:]+/);
-		var m = timeArray[0];
-		var s = checkSecond((timeArray[1] - 1));
-		if(s==59){m=m-1}
-		//if(m<0){alert('timer completed')}
-			if(m<=5){
-				$('#timer').css({
-					color:'red'
-				});
-			}
-			if(m==0 && s==0){
-				Swal.fire({
-					title:'Waktu Anda Telah Habis!',
-					icon:'warning',
-					timer:3000,
-					showConfirmButton:false
-				}).then((result)=>{
-					var kode_subject = $('#kode-subject').text();
-					var answer = JSON.stringify(jawaban);
-					$.ajax({
-						type:'POST',
-						data:'answer='+answer+"&kode="+kode_subject,
-						url:base_url+'index.php/dashboard/dashboard/sendanswer',
-						dataType:'json',
-						success:function(hasil){
-							window.location = 'http://google.com';
-						}
-					});
-				});
-			}
-			if(m<0){
-				document.getElementById('timer').innerHTML =
-				0 + ":00";
-			}else{
-				$('.main-sidebar a, .sidebar a.nav-link, #logout a, #footer a,input[type=search]')
-				.on('click',function(event){
-					event.preventDefault();
-					leaveTryOut();
-				});
-				document.getElementById('timer').innerHTML =
-				m + ":" + s;
-			}
-		setTimeout(startTimer, 1000);
-		}
 
-		function checkSecond(sec) {
-		if (sec < 10 && sec >= 0) {sec = "0" + sec;} // add zero in front of numbers < 10
-		if (sec < 0) {sec = "59";}
-		return sec;
-		}
-	
-	/* ----- /.Countdown Timer ------ */
 
 	/* ----- Submit Answer ------ */
 		$('.submit-answer').click(function(event){
@@ -223,12 +226,25 @@ $(document).ready(function(){
 	});
 	/* ----/. Set Jawaban yang di klik -----*/
 
-	/* ==== Get Time Remaining ----*/
-	$('#timer').on('beforeunload',function(){
-		var timerRemaining = $('#timer').text();
-		console.log(timerRemaining);
+	/* ==== Edit Profile ----*/
+	$('.profile-value').hover(
+		function(){
+		$(this).children().css({'display':'inline-block','font-size':'14px'});
+		},
+		function(){
+			$(this).children().css('display','none');
+		}
+	);
+	/* ====/. Edit Profile ----*/
+
+	/* ==== Button Action ----*/
+	$('button').hover(function(){
+		if($(this).hasClass('btn-edit')){
+			$(this).children().css({'display':'inline-block'})
+		}
+	},function(){
+		if($(this).hasClass('btn-edit')){
+			$(this).children().css({'display':'none'});
+		}
 	});
-	if(window.close()){
-		window.location = 'http://google.com';
-	}
 });

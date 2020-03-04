@@ -47,7 +47,7 @@ li a{
 p.note{
 	line-height:0.5px;
 }
-.nav{
+#pages.nav{
 	column-count: 2;
 }
 .nav-pages .nav-link.active{

@@ -8,11 +8,16 @@ class Dashboard extends CI_Controller {
 			redirect('home/login','refresh');
 		}
 	}
+	/* Dashboard */
 	public function index()
 	{
 		$data['main'] = 'home'; 
 		$this->load->view('dashboard/dashboard',$data);
 	}
+
+	/* TryOut */
+
+		/** TryOut **/
 	public function tryout(){
 		if($_SESSION['status_to']=='success' && $_SESSION['status']=='active'){
 			if($this->uri->segment(4)==1){
@@ -68,7 +73,7 @@ class Dashboard extends CI_Controller {
 		$data['main'] = 'cekmail';
 		$this->load->view('dashboard/dashboard',$data);
 		
-	}
+		}
 	}
 
 	//Check Kode PIN Try OUT//
@@ -100,4 +105,28 @@ class Dashboard extends CI_Controller {
 		$result['message'] = 'success';
 		echo json_encode($result);
 	}
+
+		/** Hasil TryOut **/
+	function result(){
+		$data['main'] = 'tryout_result';
+		$this->load->view('dashboard/dashboard',$data);
+	}
+
+		/** Ranking TryOut **/
+	function ranking(){
+		$data['main'] = 'tryout_rank';
+		$this->load->view('dashboard/dashboard',$data);
+	}
+
+		/** Pembahasan TryOut **/
+	function solving(){
+		$data['main'] = 'tryout_solved';
+		$this->load->view('dashboard/dashboard',$data);
+	}
+		/** Pembahasan TryOut **/
+	function profile(){
+		$data['main'] = 'tryout_profile';
+		$this->load->view('dashboard/dashboard',$data);
+	}
+	/* ./Try Out */
 }
