@@ -100,6 +100,14 @@
 						</p>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a href="<?= base_url();?>index.php/dashboard/dashboard/pay" class="nav-link">
+						<i class="nav-icon fa fa-credit-card"></i>
+						<p>
+							Pembayaran
+						</p>
+					</a>
+				</li>
 			</ul>
 		</nav>
 		<!-- /.sidebar-menu -->
